@@ -12,6 +12,8 @@ class Plate:
         self.create_plate(self.row, self.column)
     
     def create_plate(self, r, c):
+        # I have no idea why the lambda function needs to be there.
+        # It breaks otherwise.
         tk.Button(self.frame, bg = self.color, height =10, width = 20,
                   command = lambda: TicTacToe.turn(self)
                   ).grid(row = r, column = c)
@@ -30,6 +32,9 @@ class TicTacToe:
 
         self.create_board()
 
+        # For some reason I was not able to access
+        # these by writing self.virt... so I declared
+        # them global instead.
         global virtual_board
         virtual_board = np.full((3,3), np.NaN)
         
@@ -43,6 +48,9 @@ class TicTacToe:
                 Plate(self.mainframe, r, c)
     
     def turn(self):
+        # From this point on in the programming
+        # when I wrote self. It would try
+        # to get the plate's information.
         Index = Plate.get_Index(self)
         new_color = TicTacToe.track_turn(self)
 
