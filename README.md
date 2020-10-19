@@ -16,7 +16,7 @@ because Numpy is something I am actually somewhat comfortable
 working with.
 
 I got the problem that suddenly "self" in the functions for the TicTacToe
-became a Plate instance. I do not know why. I also could not get attributes
+became a Plate. I do not know why. I also could not get attributes
 from the TicTacToe class. The only solution I found was to declare the 
 variable as global -- not a good fix but it works so...
 
